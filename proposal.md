@@ -1,7 +1,7 @@
 # Random Watermark Generator
 
 ## Repository
-<(https://github.com/angelcas228/PFDA-ANGEL-CASUGA-FINAL-PROJECT.git)>
+https://github.com/angelcas228/PFDA-ANGEL-CASUGA-FINAL-PROJECT.git
 
 ## Description
 A program that will randomly place a watermark, lower its opacity, and randomly place it on any picture you're uploading. It's useful for watermarking
