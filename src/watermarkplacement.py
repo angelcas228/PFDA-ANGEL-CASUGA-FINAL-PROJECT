@@ -34,6 +34,22 @@ def draw(win, bg_image, bg_rect, drag_image, drag_rect, opacity):
     drag_image.set_alpha(opacity)
     pygame.display.flip()
 
+def save_final_image(bg_image, drag_image, drag_rect, output_folder)
+    final_image = pygame.Surface((bg_image.get_width(), bg_image.get_height()))
+    final_image.blit(bg_image, (0, 0))
+
+    os.makedirs(output_folder, exist_ok = True)
+
+    output_path = os.path.join(output_folder, "final_image.png")
+    
+    pygame.image.save(final_image, output_path)
+    print(f"Final image saved at: {output_path}")
+
+def export_image(bg_image, drag_image, drag_rect, output_folder):
+    global export_image_requested
+    if export_image_requested:
+        save_final_image(bg_image, drag_image, drag_rect, output_folder)
+        export_image_requested = False  
 def main():
     global dragging, offset_x, offset_y
     dragging = False
