@@ -1,20 +1,6 @@
 import pygame
 import os
 
-pygame.init()
-
-def window_size(image_path):
-    image = pygame.image.load(image_path)
-    win_width, win_height = image.get_width(), image.get_height()
-    return win_width, win_height
-
-
-bg_image_path = "rat_birthday.jpg"
-win_width, win_height = window_size(bg_image_path)
-win = pygame.display.set_mode((win_width, win_height))
-bg_image = pygame.image.load(bg_image_path).convert_alpha()
-pygame.display.set_caption("Image Overlay")
-
 def drag_drop(drag_rect):
     global dragging, offset_x, offset_y
     for event in pygame.event.get():
@@ -33,9 +19,27 @@ def drag_drop(drag_rect):
                 drag_rect.y = event.pos[1] - offset_y
     return True
 
+def window_size(image_path):
+    image = pygame.image.load(image_path)
+    win_width, win_height = image.get_width(), image.get_height()
+    return win_width, win_height
+
 def draw(win, bg_image, bg_rect, drag_image, drag_rect, opacity):
     win.fill((0,0,0))
     win.blit(bg_image, bg_rect)
     win.blit(drag_image, drag_rect) # Draws the thumbnail image with opacity
     drag_image.set_alpha(opacity)
     pygame.display.flip()
+
+def main():
+    global dragging, offset_x, offset_y
+    dragging = False
+    offset_x, offset_y = 0, 0
+
+    pygame.init()
+
+    bg_image_path = "rat_birthday.jpg"
+    win_width, win_height = window_size(bg_image_path)
+    win = pygame.display.set_mode((win_width, win_height))
+    bg_image = pygame.image.load(bg_image_path).convert_alpha()
+    pygame.display.set_caption("Image Overlay")
