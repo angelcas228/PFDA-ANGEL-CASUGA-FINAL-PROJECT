@@ -27,8 +27,9 @@ def drag_drop(drag_rect):
                 offset_y = event.pos[1] - drag_rect.y
         elif event.type == pygame.MOUSEBUTTONUP:
             dragging = False
-        elif event.type == pygame.MOUSEMOTION
+        elif event.type == pygame.MOUSEMOTION:
             if dragging:
                 drag_rect.x = event.pos[0] - offset_x
                 drag_rect.y = event.pos[1] - offset_y
-return True
+    return True
+
