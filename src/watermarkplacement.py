@@ -33,3 +33,9 @@ def drag_drop(drag_rect):
                 drag_rect.y = event.pos[1] - offset_y
     return True
 
+def draw(win, bg_image, bg_rect, drag_image, drag_rect, opacity):
+    win.fill((0,0,0))
+    win.blit(bg_image, bg_rect)
+    win.blit(drag_image, drag_rect) # Draws the thumbnail image with opacity
+    drag_image.set_alpha(opacity)
+    pygame.display.flip()
