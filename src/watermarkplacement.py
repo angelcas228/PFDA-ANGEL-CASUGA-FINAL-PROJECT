@@ -1,7 +1,7 @@
 import pygame
 import os
 
-def handle_events(drag_rect):
+def drag_drop(drag_rect):
     global dragging, offset_x, offset_y
     global export_image_requested
     for event in pygame.event.get():
@@ -66,7 +66,7 @@ def main():
 
     pygame.init()
 
-    bg_image_path = "rat_birthday.jpg"
+    bg_image_path = "value breakdown.png"
     win_width, win_height = set_window_size(bg_image_path)
     win = pygame.display.set_mode((win_width, win_height))
     bg_image = pygame.image.load(bg_image_path).convert_alpha()
@@ -79,7 +79,7 @@ def main():
     opacity = 128 
 
     while True:
-        if not handle_events(drag_rect):
+        if not drag_drop(drag_rect):
             break
 
         draw(win, bg_image, bg_image.get_rect(), drag_image, drag_rect, opacity)
