@@ -17,6 +17,9 @@ def drag_drop(drag_rect):
             if dragging:
                 drag_rect.x = event.pos[0] - offset_x
                 drag_rect.y = event.pos[1] - offset_y
+        elif event.type == pygame.KEYDOWN:
+            if event.key ==pygame.K_e:
+                export_image_requested = True # when user presses "E" image will be exported
     return True
 
 def window_size(image_path):
@@ -43,3 +46,6 @@ def main():
     win = pygame.display.set_mode((win_width, win_height))
     bg_image = pygame.image.load(bg_image_path).convert_alpha()
     pygame.display.set_caption("Image Overlay")
+
+if __name__ == "__main__":
+    main()
