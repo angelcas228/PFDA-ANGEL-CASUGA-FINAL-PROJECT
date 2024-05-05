@@ -7,9 +7,11 @@ Demo Video: https://youtu.be/57LdgpXeXw0
 GitHub Repo: https://github.com/angelcas228/PFDA-ANGEL-CASUGA-FINAL-PROJECT.git
 
 ## Description
-This program will let the user drag and drop their images to wherever they desire on any photo or drawing uploaded! The program will also open the window to the set dimensions of the desired image.
+This program will let the user drag and drop their images to wherever they desire on any photo or drawing uploaded! The program will also open the window to the set dimensions of the desired image. I have a final images folder set up so when the image exports it will automatically go there, and have 2 test images "Value Breakdown" and "Rat Birthday" along with the thumbnail in my folder.
 
 The program is straight forward you place your desired images and thumbnail within the correct folders, modify the code to open your specific images, and then the program will open a window the size of your drawing and allow you to drag and drop your thumbnail wherever you desire! Once you're done you can export and close the window by pressing 'E'
+
+If someone else wants to put other images in the generator all they have to do is to change the name of the file within the code, and they can also rename the exported image name other than "final image".
 
 The main function I wanted to show off in this project was mainly the drag and drop feature. I was able to do this by using pygame and through an event loop to help with the drag and drop feature. When the user presses down on the mouse to move the image it will set the event pygame.MOUSEBUTTONDOWN to true and allow the user to start dragging the image around the screen until they stop pressing. however the drag and drop event will only happen if the mouse is within the area of the thumbnail image, which is where drag_rect.collidepoint(event.pos) comes in. I learned that I had to use offset_x and offset_y to calculate the offset of where the mouse was and the top left corner of the rectangle image of the thumbnail so I could drag it around. pygame.MOUSEMOTION is the event that occured once the user has moved the mouse and when dragging is set to true, it updates the position of the draggable image. The event loops will continue to execute until the export and exit key are pressed.
 
