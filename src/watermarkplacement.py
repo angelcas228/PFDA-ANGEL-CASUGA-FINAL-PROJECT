@@ -34,7 +34,7 @@ def draw(win, bg_image, bg_rect, drag_image, drag_rect, opacity):
     drag_image.set_alpha(opacity)
     pygame.display.flip()
 
-def save_final_image(bg_image, drag_image, drag_rect, output_folder)
+def save_final_image(bg_image, drag_image, drag_rect, output_folder):
     final_image = pygame.Surface((bg_image.get_width(), bg_image.get_height()))
     final_image.blit(bg_image, (0, 0))
 
@@ -62,6 +62,22 @@ def main():
     win = pygame.display.set_mode((win_width, win_height))
     bg_image = pygame.image.load(bg_image_path).convert_alpha()
     pygame.display.set_caption("Image Overlay")
+
+    drag_image_path = "thumbnail.png"
+    drag_image = pygame.image.load(drag_image_path).convert_alpha()
+    drag_rect = drag_image.get_rect(center =(win_width // 2, win_height // 2))
+
+    opacity = 128
+
+    while True:
+        if not drag_drop(drag_rect):
+            break
+
+        draw(win, bg_image, bg_image.get_rect(), drag_image, drag_rect, opacity)
+
+        export_image(bg_image, drag_image, drag_rect, "final_images")
+
+    pygame.quit()
 
 if __name__ == "__main__":
     main()
