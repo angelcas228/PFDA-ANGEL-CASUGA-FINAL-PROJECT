@@ -1,25 +1,14 @@
-import glob
+import pygame
 import os
-import sys
 
+def window_size(image):
+    win_width = image.get_width()
+    win_height = image.get_height
+    return win_width, win_height
 
-from PIL import Image
+bg_image_path = "rat_birthday.jpg"
+bg_image = pygame.image.load(bg_image_path).convert_alpha()
 
-def main():
-    src_img_paths = glob.glob(sys.argv[1])
-    logo_img = Image.open('NL_logo.png')
-    for src_img_path in src_img_paths:
-      name, ext = os.path.splitext(src_img_path)
-      with (Image.open(src_img_path) as img,
-            ):
-          print(f"Watermarking {src_img_path}...")
-          padding = 50
-          x = padding
-          y = img.height - logo_img.height - padding
-          img.paste(logo_img, (x, y), mask=logo_img.getchannel('A'))
-          # img.paste(logo_img, (x, y))
-          img.save(f"{name}_wm{ext}")
-    logo_img.close()
-
-if __name__ == "__main__":
-    main()
+win_width, win_height = set_window_size(bg_image)
+win = pygame.display.set_mode((win_width, win_height))
+pygame.display.set_caption("Image Overlay")
