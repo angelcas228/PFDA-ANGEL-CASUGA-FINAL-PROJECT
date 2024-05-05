@@ -22,6 +22,9 @@ def handle_events(drag_rect):
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_e:
                 export_image_requested = True
+                return False
+            elif event.key == pygame.K_ESCAPE:
+                return False
     return True
 
 def set_window_size(image_path):
